@@ -8,7 +8,22 @@
 
 This project represents the fusion of three cutting-edge technologies, creating a hybrid architecture rarely seen in production systems:
 
-![Trinity Diagram](https://mermaid.ink/img/pako:eNptkMEKwjAMhl8l5LKBHnoQvOigF_GwdBtpN3QtaVdFRHfZ3U3w4E3y_L98CSmRQ0aUkL1vFNoaW6H8qBwM1kY_OGeD1_yR8_l8fT6IJ_JCOW-9tY7QokP2yB7Yk_vO7s0-2E_2S5JIgjSSICvJIFvJIPu_ZLAf0ZkLpA)
+```mermaid
+graph TD
+    subgraph Trinity [🧬 The Opifices Trinity]
+        direction TB
+        Brain[/"🧠 The Brain<br/>(JRuby / Dynamic Logic)"/]
+        Speed["⚡ The Speed<br/>(Panama / Zero-Copy)"]
+        Muscle["💪 The Muscle<br/>(Vector API / AVX-512)"]
+    end
+
+    Brain -->|Orchestrates| Speed
+    Brain -->|Validates| Muscle
+    Speed -->|Feeds Data| Muscle
+    Muscle -->|Verifies| Speed
+
+    classDef elite fill:#1e1e1e,stroke:#ED8B00,stroke-width:2px,color:#fff;
+    class Brain,Speed,Muscle elite;
 
 *   **⚡ The Speed (Project Panama)**: The `HyperLinkAllocator` utilizes `java.lang.foreign` to map shared memory segments (`/dev/shm`), completely bypassing the filesystem and kernel context switches associated with traditional I/O.
 *   **💪 The Muscle (Vector API)**: `VectorizedIntegrity` leverages AVX-512 registers to hash data blocks at hardware speeds, overcoming the scalar limitations of the traditional JVM `MessageDigest`.
@@ -66,3 +81,4 @@ MemorySegment.copy(source, 0, destination, 0, length);
 ---
 
 **Opifices Research Lab** | *Building the fabric of the future.*
+
