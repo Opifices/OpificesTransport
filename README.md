@@ -23,7 +23,7 @@ graph TD
     Muscle -->|Verifies| Speed
 
     classDef elite fill:#1e1e1e,stroke:#ED8B00,stroke-width:2px,color:#fff;
-    class Brain,Speed,Muscle elite;
+    class Brain,Speed,Muscle elite;```
 
 *   **⚡ The Speed (Project Panama)**: The `HyperLinkAllocator` utilizes `java.lang.foreign` to map shared memory segments (`/dev/shm`), completely bypassing the filesystem and kernel context switches associated with traditional I/O.
 *   **💪 The Muscle (Vector API)**: `VectorizedIntegrity` leverages AVX-512 registers to hash data blocks at hardware speeds, overcoming the scalar limitations of the traditional JVM `MessageDigest`.
@@ -81,5 +81,6 @@ MemorySegment.copy(source, 0, destination, 0, length);
 ---
 
 **Opifices Research Lab** | *Building the fabric of the future.*
+
 
 
