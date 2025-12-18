@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.ui.MainWindowController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="magnetInput" promptText="Paste Magnet Link Here..." HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleOpenTorrentAction" text="Open .torrent" />
+            <Button fx:id="downloadButton" mnemonicParsing="false" onAction="#handleDownloadAction" text="Download" />
+            <Button mnemonicParsing="false" onAction="#handleSettingsAction" text="Settings" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.65" orientation="VERTICAL" BorderPane.alignment="CENTER">
+         <items>
+            <TableView fx:id="torrentTable" prefHeight="200.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="nameCol" prefWidth="250.0" text="Name" />
+                  <TableColumn fx:id="progressCol" prefWidth="80.0" text="Progress" />
+                  <TableColumn fx:id="downSpeedCol" prefWidth="100.0" text="Down Speed" />
+                  <TableColumn fx:id="upSpeedCol" prefWidth="100.0" text="Up Speed" />
+                  <TableColumn fx:id="seedsCol" prefWidth="60.0" text="Seeds" />
+                  <TableColumn fx:id="peersCol" prefWidth="60.0" text="Peers" />
+                  <TableColumn fx:id="etaCol" prefWidth="80.0" text="ETA" />
+                  <TableColumn fx:id="statusCol" prefWidth="100.0" text="Status" />
+               </columns>
+            </TableView>
+            <VBox fx:id="detailsPanel" spacing="10.0" style="-fx-background-color: #2a2a2a;">
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label fx:id="detailsTitle" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Select a torrent to see details" />
+                  <GridPane hgap="15.0" vgap="8.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="20.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Downloaded:" style="-fx-text-fill: #888888;" />
+                        <Label fx:id="detailDownloaded" text="-" GridPane.columnIndex="1" />
+                        <Label text="Uploaded:" style="-fx-text-fill: #888888;" GridPane.columnIndex="2" />
+                        <Label fx:id="detailUploaded" text="-" GridPane.columnIndex="3" />
+                        
+                        <Label text="Seeds:" style="-fx-text-fill: #888888;" GridPane.rowIndex="1" />
+                        <Label fx:id="detailSeeds" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Leechers:" style="-fx-text-fill: #888888;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="detailLeechers" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        
+                        <Label text="Total Size:" style="-fx-text-fill: #888888;" GridPane.rowIndex="2" />
+                        <Label fx:id="detailSize" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="ETA:" style="-fx-text-fill: #888888;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="detailEta" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Label fx:id="detailError" style="-fx-text-fill: #ff5555;" text="" wrapText="true" />
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <HBox spacing="10.0" style="-fx-padding: 5; -fx-background-color: #f4f4f4; -fx-border-color: #ddd; -fx-border-width: 1 0 0 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="statusLabel" maxWidth="1.7976931348623157E308" text="Ready" HBox.hgrow="ALWAYS" />
+            <Label fx:id="refreshLabel" style="-fx-text-fill: #888;" text="Last update: -" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,99 @@
+.root {
+    -fx-base: #1e1e1e;
+    -fx-background: #1e1e1e;
+    -fx-control-inner-background: #2d2d2d;
+    -fx-control-inner-background-alt: #363636;
+    -fx-text-fill: #e0e0e0;
+    -fx-accent: #2196f3;
+    -fx-focus-color: #2196f3;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+.label { 
+    -fx-text-fill: #e0e0e0; 
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.button:hover { 
+    -fx-background-color: #1976d2; 
+}
+
+.button:pressed {
+    -fx-background-color: #0d47a1;
+}
+
+.text-field {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-border-color: #444444;
+    -fx-border-radius: 4px;
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #2196f3;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-base: #1e1e1e;
+    -fx-control-inner-background: #1e1e1e;
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #252526;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #3e3e42;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    -fx-border-width: 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER-LEFT;
+}
+
+.table-row-cell {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #2d2d2d;
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:odd { 
+    -fx-background-color: #252526; 
+}
+
+.table-row-cell:selected { 
+    -fx-background-color: #2196f3; 
+    -fx-text-fill: white;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #424242;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar:vertical .track, .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

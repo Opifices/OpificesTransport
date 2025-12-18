@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="520.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.ui.SettingsController">
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Preferences" />
+      <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="General">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Downloads" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Path:" />
+                              <TextField fx:id="downloadPathField" GridPane.columnIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#handleBrowse" text="..." GridPane.columnIndex="2" />
+                              <CheckBox fx:id="autoStartCheck" mnemonicParsing="false" text="Auto-start downloads" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Label style="-fx-font-weight: bold;" text="Interface" />
+                        <CheckBox fx:id="darkModeCheck" mnemonicParsing="false" text="Enable Dark Mode" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Network">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Listening Port" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="TCP Port:" />
+                              <TextField fx:id="portField" GridPane.columnIndex="1" />
+                              <CheckBox fx:id="randomizePortCheck" mnemonicParsing="false" text="Randomize on start" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Label style="-fx-font-weight: bold;" text="Connections" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Max Peers:" />
+                              <TextField fx:id="maxPeersField" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </Tab>
+            <Tab text="Bandwidth">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Global Limits" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints hgrow="NEVER" minWidth="40.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Download Rate:" />
+                              <TextField fx:id="maxDownloadSpeedField" text="0" GridPane.columnIndex="1" />
+                              <Label text="KB/s" GridPane.columnIndex="2" />
+                              <Label text="Upload Rate:" GridPane.rowIndex="1" />
+                              <TextField fx:id="maxUploadSpeedField" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="KB/s" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Experimental Optimizations">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <CheckBox fx:id="safeModeCheck" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: green;" text="DISABLE OPTIMIZATIONS (SAFE MODE)" />
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #ff5555;" text="Protocol Tuning" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="User-Agent Override:" />
+                              <TextField fx:id="userAgentField" promptText="e.g. uTorrent/3.5.5" GridPane.columnIndex="1" />
+                              <CheckBox fx:id="aggressiveUnchokeCheck" mnemonicParsing="false" text="Adaptive Unchoke (5s interval)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="bitTyrantCheck" mnemonicParsing="false" text="Enable High-Availability Mode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #ff5555;" text="Advanced Metrics" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Ratio Management:" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField fx:id="ratioMultiplierField" promptText="1.0" text="1.0" />
+                                    <Label text="x Multiplier" />
+                                 </children>
+                              </HBox>
+                              <CheckBox fx:id="ghostSeedingCheck" mnemonicParsing="false" text="Virtual Seeding (Emulated Bitfield)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #55ff55;" text="Speed Boosters" />
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="140.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Connection Management:" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField fx:id="maxConnectionsField" promptText="200" prefWidth="80.0" />
+                                    <Label text="Max Connections (50-500)" />
+                                 </children>
+                              </HBox>
+                              <Label text="Request Pipelining:" GridPane.rowIndex="1" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField fx:id="pipelineRequestsField" promptText="50" prefWidth="80.0" />
+                                    <Label text="Parallel Requests (5-100)" />
+                                 </children>
+                              </HBox>
+                              <CheckBox fx:id="leecherModeCheck" mnemonicParsing="false" text="Ingest-Only Mode (Cap Upload)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="dhtAggressiveCheck" mnemonicParsing="false" text="DHT Fast-Query (Query every 5s)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                        <Label style="-fx-font-size: 10px; -fx-text-fill: #aaaaaa;" text="* Warning: These settings may get you banned from private trackers." wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: transparent; -fx-border-color: #666; -fx-border-radius: 4px;" text="Cancel" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleSave" text="Apply &amp; Save" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
